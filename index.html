@@ -2,19 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Select Eaglercraft Version</title>
+  <title>Eaglercraft Version Selector</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { text-align: center; font-family: Arial; margin-top: 100px; background: #111; color: white; }
-    button { margin: 20px; padding: 20px 40px; font-size: 24px; cursor: pointer; background: #1a73e8; border: none; border-radius: 10px; color: white; }
-    button:hover { background: #1558b0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .version-button {
+      background: linear-gradient(135deg, #1a73e8, #1558b0);
+      border: none;
+      border-radius: 15px;
+      padding: 20px 50px;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .version-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 500px) {
+      .version-button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
-
-<h1>Select Version</h1>
-
-<a href="1-12-2/"><button>Play 1.12.2</button></a>
-<a href="1-8-8/"><button>Play 1.8.8</button></a>
-
+  <div class="container">
+    <h1>Select Eaglercraft Version</h1>
+    <div class="buttons">
+      <a href="1-12-2/" class="version-button">Play 1.12.2</a>
+      <a href="1-8-8/" class="version-button">Play 1.8.8</a>
+    </div>
+  </div>
 </body>
 </html>
