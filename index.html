@@ -1,150 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Eaglercraft Launcher</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      color: #fff;
-    }
-
-    /* Particles background */
-    .particles { position: absolute; width:100%; height:100%; overflow:hidden; z-index:0; }
-    .particle { position:absolute; background: rgba(255,255,255,0.2); width:4px; height:4px; border-radius:50%; animation: float 10s linear infinite; }
-    @keyframes float { 0% {transform:translateY(0) translateX(0); opacity:0;} 50%{opacity:1;} 100%{transform:translateY(-1000px) translateX(100px); opacity:0;} }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      background: rgba(0,0,0,0.7);
-      padding: 60px 50px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-      backdrop-filter: blur(5px);
-      max-width: 800px;
-      width: 90%;
-    }
-
-    h1 {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 3rem;
-      margin-bottom: 50px;
-      color: #00ffe0;
-      text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
-    }
-
-    .versions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-    }
-
-    .version-card {
-      background: linear-gradient(135deg, #ff6ec4, #7873f5);
-      width: 180px;
-      height: 240px;
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .version-card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 20px 35px rgba(0,0,0,0.7);
-      background: linear-gradient(135deg, #7873f5, #ff6ec4);
-    }
-
-    .version-card::before {
-      content:"";
-      position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(255,255,255,0.1);
-      transform: skewY(-20deg) translateX(-100%);
-      transition: transform 0.5s;
-    }
-
-    .version-card:hover::before { transform: skewY(-20deg) translateX(200%); }
-
-    .version-logo {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 15px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
-    }
-
-    .version-card:hover .version-logo {
-      transform: scale(1.1);
-    }
-
-    .version-label { z-index: 1; text-align:center; }
-
-    @media(max-width:500px) {
-      .version-card { width: 140px; height:200px; padding:15px; font-size:1rem; }
-      .version-logo { width:60px; height:60px; margin-bottom:10px; }
-      h1 { font-size:2rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Eaglercraft Launcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Roboto',sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  color:#fff;
+}
+.particles{position:absolute;width:100%;height:100%;overflow:hidden;z-index:0;}
+.particle{position:absolute;background:rgba(255,255,255,0.2);width:4px;height:4px;border-radius:50%;animation:float 10s linear infinite;}
+@keyframes float{0%{transform:translateY(0) translateX(0);opacity:0;}50%{opacity:1;}100%{transform:translateY(-1000px) translateX(100px);opacity:0;}}
+.container{position:relative;z-index:1;text-align:center;background:rgba(0,0,0,0.7);padding:60px 50px;border-radius:25px;box-shadow:0 15px 40px rgba(0,0,0,0.6);backdrop-filter:blur(5px);max-width:800px;width:90%;}
+h1{font-family:'Press Start 2P',cursive;font-size:3rem;margin-bottom:50px;color:#00ffe0;text-shadow:2px 2px 15px rgba(0,0,0,0.7);}
+.versions{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;}
+.version-card{background:linear-gradient(135deg,#ff6ec4,#7873f5);width:180px;height:240px;border-radius:20px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-decoration:none;color:white;font-weight:bold;font-size:1.1rem;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,0.5);transition:all 0.3s;position:relative;overflow:hidden;}
+.version-card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 20px 35px rgba(0,0,0,0.7);background:linear-gradient(135deg,#7873f5,#ff6ec4);}
+.version-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.1);transform:skewY(-20deg) translateX(-100%);transition:transform 0.5s;}
+.version-card:hover::before{transform:skewY(-20deg) translateX(200%);}
+.version-logo{width:80px;height:80px;margin-bottom:15px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:transform 0.3s;}
+.version-card:hover .version-logo{transform:scale(1.1);}
+.version-label{z-index:1;text-align:center;}
+.badge{position:absolute;top:10px;right:10px;background:#ffea00;color:#000;padding:5px 10px;font-size:0.7rem;font-weight:bold;border-radius:8px;text-transform:uppercase;box-shadow:0 2px 5px rgba(0,0,0,0.3);}
+.footer{margin-top:30px;font-size:0.8rem;color:#ccc;}
+.footer a{color:#00ffe0;text-decoration:none;margin:0 10px;transition:0.2s;}
+.footer a:hover{text-decoration:underline;color:#ff6ec4;}
+@media(max-width:500px){.version-card{width:140px;height:200px;padding:15px;font-size:1rem;}.version-logo{width:60px;height:60px;margin-bottom:10px;}h1{font-size:2rem;}}
+</style>
 </head>
 <body>
-  <div class="particles"></div>
+<div class="particles"></div>
 
-  <div class="container">
-    <h1>Eaglercraft Launcher</h1>
-    <div class="versions">
-      <a href="1-12-2/" class="version-card">
-        <img src="assets/logo 1.12.png" alt="1.12.2 Logo" class="version-logo">
-        <div class="version-label">1.12.2</div>
-      </a>
+<div class="container">
+<h1>Eaglercraft Launcher</h1>
+<div class="versions">
+  <a href="1-12-2/" class="version-card">
+    <img src="assets/logo-1-12.png" alt="1.12.2 Logo" class="version-logo">
+    <div class="version-label">1.12.2</div>
+    <div class="badge">Latest</div>
+  </a>
+  <a href="1-8-8/" class="version-card">
+    <img src="assets/logo-1-8.png" alt="1.8.8 Logo" class="version-logo">
+    <div class="version-label">1.8.8</div>
+  </a>
+</div>
+<div class="footer">
+  <a href="#">Discord</a> | <a href="#">Support</a>
+</div>
+</div>
 
-      <a href="1-8-8/" class="version-card">
-        <img src="assets/1.8 logo.png" alt="1.8.8 Logo" class="version-logo">
-        <div class="version-label">1.8.8</div>
-      </a>
-
-      <!-- Add more versions here by copying a block and updating folder + logo -->
-    </div>
-  </div>
-
-  <script>
-    // Generate floating particles
-    const particlesContainer = document.querySelector('.particles');
-    for(let i=0;i<60;i++){
-      const p = document.createElement('div');
-      p.classList.add('particle');
-      p.style.left = `${Math.random()*100}%`;
-      p.style.top = `${Math.random()*100}%`;
-      p.style.width = `${Math.random()*6+2}px`;
-      p.style.height = p.style.width;
-      p.style.animationDuration = `${Math.random()*8+5}s`;
-      p.style.animationDelay = `${Math.random()*5}s`;
-      particlesContainer.appendChild(p);
-    }
-  </script>
+<script>
+// Particles
+const particlesContainer = document.querySelector('.particles');
+for(let i=0;i<60;i++){
+  const p=document.createElement('div');
+  p.classList.add('particle');
+  p.style.left=`${Math.random()*100}%`;
+  p.style.top=`${Math.random()*100}%`;
+  p.style.width=`${Math.random()*6+2}px`;
+  p.style.height=p.style.width;
+  p.style.animationDuration=`${Math.random()*8+5}s`;
+  p.style.animationDelay=`${Math.random()*5}s`;
+  particlesContainer.appendChild(p);
+}
+</script>
 </body>
 </html>
